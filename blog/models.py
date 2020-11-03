@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class Catetory(models.Model):
+class Category(models.Model):
     """
     data model to the category
 
@@ -50,7 +50,7 @@ class Post(models.Model):
     # As the post can have no tag assigned also, so we set the blank is true.
     # please refer to https://docs.djangoproject.com/en/2.2/topics/db/models/#relationships for details.
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(tag, blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
 
     # auther of the post. Here the User is came from django.contrib.auth.models.
     # django.contrib.auth is built-in application for django, which is used to handle user registration, login, etc.
