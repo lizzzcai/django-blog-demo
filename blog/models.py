@@ -14,6 +14,9 @@ class Category(models.Model):
     """
     name = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
+
 
 class Tag(models.Model):
     """
@@ -22,6 +25,9 @@ class Tag(models.Model):
     tag to tag the blog, similar to the category.
     """
     name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
 
 
 class Post(models.Model):
@@ -57,3 +63,6 @@ class Post(models.Model):
     # here we use ForeignKey to link the post and user, because we rassume one post have one auther only,
     # but one auther may has multiple posts.
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
